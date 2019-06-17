@@ -6,10 +6,10 @@ $(function()
         dataType: 'json',
         success: function(posts)
         {
-            const nbrLinks = posts.length / 10;
+            const nbrPosts = posts.length / 10;
             let linksList = 'Page: ';
             
-            for (let i=1; i<=nbrLinks; i++)
+            for (let i=1; i<=nbrPosts; i++)
             {
                 linksList += '<button><a class="page-target">'+i+'</a></button>';
             }
@@ -46,7 +46,7 @@ $(function()
         let commentId = this.id;
         let parentId = $(this).parent().attr('id');
         let postId = commentId.substring(8);
-        
+        console.log(postId);
         $.get(
             'http://jsonplaceholder.typicode.com/comments?postId='+postId,
             function(comments)
